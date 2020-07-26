@@ -20,6 +20,9 @@ const pipeline = chain([
 const requestMethodArray = [];
 const requestMethodChartData = [];
 const answerChartData = [];
+const answerSizeChartData = [];
+const requestsPerMinuteChartData = [];
+
 let answerCodeArray = [];
 let minutesArray = [];
 
@@ -71,15 +74,19 @@ pipeline.on('end', () => {
         })
     })
 
-    const answerSizeChartData = [{'title': `Status OK, size > ${limitSize}`, 'value': answerCodeObj['200']}];
+    answerSizeChartData.push({'title': `Status OK, size > ${limitSize}`, 'value': answerCodeObj['200']});
     
+    //TODOminutes
 
-    console.log("req:" + JSON.stringify(requestMethodChartData));
+/*     console.log("req:" + JSON.stringify(requestMethodChartData));
     console.log(answerChartData);
-
+ */
+console.log(answerSizeChartData);
 
 });
 
 module.exports = {requestMethodChartData : requestMethodChartData,
-    answerChartData: answerChartData
+    answerChartData: answerChartData,
+    answerSizeChartData: answerSizeChartData,
+    requestsPerMinuteChartData: requestsPerMinuteChartData
  };

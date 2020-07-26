@@ -1,0 +1,113 @@
+[ {
+  "host" : "141.243.1.172",
+  "datetime" : {
+    "day" : "29",
+    "hour" : "23",
+    "minute" : "53",
+    "second" : "25"
+  },
+  "serverRequest" : {
+    "httpRequestMethod" : "POST",
+    "url" : "/Software.html",
+    "protocol" : "HTTP",
+    "protocolVersion" : "1.0"
+  },
+  "httpAnswerCode" : "200",
+  "requestSize" : "1497"
+}, {
+  "host" : "query2.lycos.cs.cmu.edu",
+  "datetime" : {
+    "day" : "29",
+    "hour" : "23",
+    "minute" : "53",
+    "second" : "36"
+  },
+  "serverRequest" : {
+    "httpRequestMethod" : "",
+    "url" : "/Consumer.html",
+    "protocol" : "HTTP",
+    "protocolVersion" : "1.0"
+  },
+  "httpAnswerCode" : "400",
+  "requestSize" : "1325"
+}, {
+  "host" : "tanuki.twics.com",
+  "datetime" : {
+    "day" : "29",
+    "hour" : "23",
+    "minute" : "53",
+    "second" : "53"
+  },
+  "serverRequest" : {
+    "httpRequestMethod" : "",
+    "url" : "/News.html",
+    "protocol" : "HTTP",
+    "protocolVersion" : "1.0"
+  },
+  "httpAnswerCode" : "200",
+  "requestSize" : "1014"
+}, {
+  "host" : "wpbfl2-45.gate.net",
+  "datetime" : {
+    "day" : "29",
+    "hour" : "23",
+    "minute" : "54",
+    "second" : "15"
+  },
+  "serverRequest" : {
+    "httpRequestMethod" : "GET",
+    "url" : "/",
+    "protocol" : "HTTP",
+    "protocolVersion" : "1.0"
+  },
+  "httpAnswerCode" : "200",
+  "requestSize" : "4889"
+}, {
+  "host" : "wpbfl2-45.gate.net",
+  "datetime" : {
+    "day" : "29",
+    "hour" : "23",
+    "minute" : "54",
+    "second" : "16"
+  },
+  "serverRequest" : {
+    "httpRequestMethod" : "GET",
+    "url" : "/icons/circle_logo_small.gif",
+    "protocol" : "HTTP",
+    "protocolVersion" : "1.0"
+  },
+  "httpAnswerCode" : "200",
+  "requestSize" : "2624"
+}, {
+  "host" : "wpbfl2-45.gate.net",
+  "datetime" : {
+    "day" : "30",
+    "hour" : "23",
+    "minute" : "55",
+    "second" : "18"
+  },
+  "serverRequest" : {
+    "httpRequestMethod" : "GET",
+    "url" : "/logos/small_gopher.gif",
+    "protocol" : "HTTP",
+    "protocolVersion" : "1.0"
+  },
+  "httpAnswerCode" : "200",
+  "requestSize" : "935"
+}, {
+  "host" : "140.112.68.165",
+  "datetime" : {
+    "day" : "30",
+    "hour" : "23",
+    "minute" : "56",
+    "second" : "19"
+  },
+  "serverRequest" : {
+    "httpRequestMethod" : "GET",
+    "url" : "/logos/us-flag.gif",
+    "protocol" : "HTTP",
+    "protocolVersion" : "1.0"
+  },
+  "httpAnswerCode" : "200",
+  "requestSize" : "2788"
+}  ]

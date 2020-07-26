@@ -81,7 +81,7 @@ pipeline.on('end', () => {
 /*     console.log("req:" + JSON.stringify(requestMethodChartData));
     console.log(answerChartData);
  */
-console.log(answerSizeChartData);
+console.log(requestMethodChartData);
 
 });
 
@@ -89,4 +89,4 @@ module.exports = {requestMethodChartData : requestMethodChartData,
     answerChartData: answerChartData,
     answerSizeChartData: answerSizeChartData,
     requestsPerMinuteChartData: requestsPerMinuteChartData
- };
+};

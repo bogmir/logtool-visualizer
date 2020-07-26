@@ -5,9 +5,11 @@ import NavigationItem from './NavigationItem/NavigationItem';
 
 const navigationItems = () => (
     <ul className='NavigationItems'>
-        <NavigationItem link="/" exact>Welcome</NavigationItem>
-        <NavigationItem link="/requestMethods">RequestMethodsPie</NavigationItem>
-        <NavigationItem link="/answerCodes">AnswerCodesPie</NavigationItem>
+        {/* <NavigationItem link="/" exact>Log Stats</NavigationItem> */}
+        <NavigationItem link="/requestMethods">Request Methods Distribution</NavigationItem>
+        <NavigationItem link="/answerCodes">Answer Status Rate</NavigationItem>
+        <NavigationItem link="/shortAnswers">Short Answer Rate</NavigationItem>
+        <NavigationItem link="/requestsPerMin">Requests Per Minute</NavigationItem>
     </ul>
 );
 

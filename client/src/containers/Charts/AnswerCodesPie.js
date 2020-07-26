@@ -42,8 +42,9 @@ class AnswerCodesPie extends Component {
             <Tooltip/>
           </PieChart>
  */}          <BarChart dataKey="value"
-                width={700} 
-                height={600} 
+                width={1000} 
+                height={700} 
+                margin={{top: 150, right: 200, left: 400, bottom: 50}}
                 data={this.state.answers}>
                 <Bar dataKey="value">
                 {

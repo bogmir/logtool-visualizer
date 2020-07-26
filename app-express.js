@@ -17,7 +17,7 @@ app.set('view engine', 'jade');
 app.use('/', indexRouter);
 app.use('/requests', requestsRouter);
 app.use('/answers', answersRouter);
-app.use('/answerSize', answerSizeRouter);
-app.use('/requestsPerMinute', requestsPerMinuteRouter);
+app.use('/shortAnswers', answerSizeRouter);
+app.use('/requestsPerMin', requestsPerMinuteRouter);
 
 app.listen(5000);

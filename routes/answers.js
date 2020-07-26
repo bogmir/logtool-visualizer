@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const {answerChartData} = require('../processing');
+const {answerChartData} = require('../src/processing/processing');
 
 
 router.get('/', function(req, res, next) {

@@ -29,7 +29,7 @@ class ShortAnswersDoughnut extends Component {
 
 
   componentDidMount() {
-    fetch('/shortAnswers')
+    fetch('/short-answers')
       .then( res => res.json() )
       .then( data => {
         console.log(data[0].value);

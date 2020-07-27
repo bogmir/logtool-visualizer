@@ -16,10 +16,10 @@ class App extends Component {
       <div>
         <Layout>
           <Switch>
-            <Route path="/requestMethods" component={RequestMethodsPie} />
-            <Route path="/answerCodes" component={AnswerCodesPie} />
-            <Route path="/shortAnswers" component={ShortAnswersDoughnut} />
-            <Route path="/requestsPerMin" component={RequestsPerMinuteChart} />
+            <Route path="/request-methods" component={RequestMethodsPie} />
+            <Route path="/answer-codes" component={AnswerCodesPie} />
+            <Route path="/short-answers" component={ShortAnswersDoughnut} />
+            <Route path="/requests-per-min" component={RequestsPerMinuteChart} />
             <Route path="/" component={Welcome} exact />
           </Switch>
         </Layout>

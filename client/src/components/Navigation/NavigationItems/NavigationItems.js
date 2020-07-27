@@ -6,10 +6,10 @@ import NavigationItem from './NavigationItem/NavigationItem';
 const navigationItems = () => (
     <ul className='NavigationItems'>
         {/* <NavigationItem link="/" exact>Log Stats</NavigationItem> */}
-        <NavigationItem link="/requestMethods">Request Methods Distribution</NavigationItem>
-        <NavigationItem link="/answerCodes">Answer Status Rate</NavigationItem>
-        <NavigationItem link="/shortAnswers">Short Answer Rate</NavigationItem>
-        <NavigationItem link="/requestsPerMin">Requests Per Minute</NavigationItem>
+        <NavigationItem link="/request-methods">Request Methods Distribution</NavigationItem>
+        <NavigationItem link="/answer-codes">Answer Status Rate</NavigationItem>
+        <NavigationItem link="/short-answers">Short Answer Rate</NavigationItem>
+        <NavigationItem link="/requests-per-min">Requests Per Minute</NavigationItem>
     </ul>
 );
 

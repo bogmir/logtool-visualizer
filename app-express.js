@@ -10,13 +10,11 @@ const requestsPerMinuteRouter = require('./routes/requestsPerMinute');
 
 const app = express();
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-
+app.use('/static', express.static(path.join(__dirname, 'client/build/static')));
 app.use('/', indexRouter);
 app.use('/requests', requestsRouter);
 app.use('/answers', answersRouter);
-app.use('/shortAnswers', answerSizeRouter);
-app.use('/requestsPerMin', requestsPerMinuteRouter);
+app.use('/short-answers', answerSizeRouter);
+app.use('/requests-per-min', requestsPerMinuteRouter);
 
+app.listen(5000);

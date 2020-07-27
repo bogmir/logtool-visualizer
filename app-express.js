@@ -17,4 +17,4 @@ app.use('/answers', answersRouter);
 app.use('/short-answers', answerSizeRouter);
 app.use('/requests-per-min', requestsPerMinuteRouter);
 
-app.listen(5000);
+//app.listen(5000);

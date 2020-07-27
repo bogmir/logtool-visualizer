@@ -1,51 +1,21 @@
 import React, {Component} from 'react';
-import {PieChart, Pie, Sector} from 'recharts';
+import {PieChart, Pie, Legend, Cell, Tooltip} from 'recharts';
 import rca, {pastel} from 'rainbow-colors-array';
 
 import './ShortAnswersDoughnut.css';
 
-const renderActiveShape = (props) => {
-  const RADIAN = Math.PI / 180;
-  const { cx, cy, midAngle, innerRadius, outerRadius, startAngle, endAngle,
-    fill, payload, percent, value } = props;
-  const sin = Math.sin(-RADIAN * midAngle);
-  const cos = Math.cos(-RADIAN * midAngle);
-  const sx = cx + (outerRadius + 10) * cos;
-  const sy = cy + (outerRadius + 10) * sin;
-  const mx = cx + (outerRadius + 30) * cos;
-  const my = cy + (outerRadius + 30) * sin;
-  const ex = mx + (cos >= 0 ? 1 : -1) * 22;
-  const ey = my;
-  const textAnchor = cos >= 0 ? 'start' : 'end';
+const RADIAN = Math.PI / 180;
+const renderCustomizedLabel = ({
+  cx, cy, midAngle, innerRadius, outerRadius, percent, index,
+}) => {
+   const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+  const x = cx + radius * Math.cos(-midAngle * RADIAN);
+  const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
   return (
-    <g>
-      <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>{payload.name}</text>
-      <Sector
-        cx={cx}
-        cy={cy}
-        innerRadius={innerRadius}
-        outerRadius={outerRadius}
-        startAngle={startAngle}
-        endAngle={endAngle}
-        fill={fill}
-      />
-      <Sector
-        cx={cx}
-        cy={cy}
-        startAngle={startAngle}
-        endAngle={endAngle}
-        innerRadius={outerRadius + 6}
-        outerRadius={outerRadius + 10}
-        fill="#C2A993"
-      />
-      <path d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`} stroke={fill} fill="none"/>
-      <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none"/>
-      <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="#333">{`PV ${value}`}</text>
-      <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} dy={18} textAnchor={textAnchor} fill="#999">
-        {`(Rate ${(percent * 100).toFixed(2)}%)`}
-      </text>
-    </g>
+    <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
+      {`${(percent * 100).toFixed(0)}%`}
+    </text>
   );
 };
 
@@ -57,19 +27,6 @@ class ShortAnswersDoughnut extends Component {
       colors: {}
     };
 
-  onPieEnter(data, index) {
-    const updatedDistribution = {
-      ...this.state.sizeDistribution
-    };
-    const updatedColors = {
-      ...this.state.colors
-    };
-    this.setState({
-          activeIndex: index,
-          sizeDistribution: updatedDistribution,
-          colors: updatedColors
-    });
-  };
 
   componentDidMount() {
     fetch('/shortAnswers')
@@ -89,25 +46,28 @@ class ShortAnswersDoughnut extends Component {
   }
 
   render() {
-    return (
-      <div>
-            <PieChart width={1000} height={800}>
-              <Pie 
-                activeIndex={this.state.activeIndex}
-                activeShape={renderActiveShape} 
-                data={this.state.sizeDistribution} 
-                cx={700} 
-                cy={450} 
-                innerRadius={180}
-                outerRadius={200} 
-                fill="#C2A223"
-                onMouseEnter={this.onPieEnter}
-              />
+      return (
+            <PieChart width={1000} height={700}>
+                <Pie
+                  dataKey="value"
+                  name="Distribution of the size of the answer of all requests with code 200 and size < 1000B"
+                  cx={480}
+                  cy={400}
+                  data={this.state.sizeDistribution}
+                  labelLine={false}
+                  label="lab"/* {renderCustomizedLabel} */
+                  outerRadius={200}
+                  fill="#8884d8"
+                >
+                  {
+                    Object.values(this.state.sizeDistribution).map((entry, index) => 
+                        <Cell key={`cell-${index}`} 
+                          fill={this.state.colors[index % this.state.colors.length]} />)
+                  }
+                </Pie>
+                <Legend padding="100" />
             </PieChart>
-    );
-    </div>
-
-    );
+      );
   }
 }
 

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BarChart, Bar, Cell, Tooltip} from 'recharts';
+import {BarChart, Bar, Cell, Tooltip, XAxis, YAxis, Legend} from 'recharts';
 import rca, {pastel} from 'rainbow-colors-array';
 
 import './RequestMethodsPie.css';
@@ -31,15 +31,24 @@ class RequestMethodsPie extends Component {
                 height={700} 
                 margin={{top: 150, right: 200, left: 400, bottom: 50}}
                 data={this.state.requests}>
-                <Bar dataKey="value">
-                {
-                    Object.values(this.state.requests).map((entry, index) => (
-                      <Cell key={`cell-${index}`} 
-                            fill={this.state.colors[index]}  
-                            strokeWidth={index === 2 ? 4 : 1}
-                      />))
-                }
+
+            <XAxis dataKey="name"/>
+            <YAxis/>
+
+            <Bar dataKey="value" 
+                  name="HTTP request methods distribution">
+              {
+                  Object.values(this.state.requests).map((entry, index) => (
+                    <Cell key={`cell-${index}`} 
+                          fill={this.state.colors[index]}
+                          stroke="#000000"
+                          strokeWidth={index === 2 ? 4 : 1}
+                    />))
+              }
             </Bar>
+            <Tooltip cursor={{ fill: 'rgba(206, 206, 206, 0.2)' }} />
+            <Legend />
+
           </BarChart>          
       </div>
 

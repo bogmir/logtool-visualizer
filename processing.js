@@ -13,7 +13,7 @@ const pipeline = chain([
     parser(),
     streamArray(),
     data => data.value
-  ]);
+  ]); 
 
 const requestMethodArray = [];
 const requestMethodChartData = [];
@@ -74,14 +74,14 @@ pipeline.on('end', () => {
 
     answerSizeChartData.push({'name': `Status OK, size > ${limitSize}`, 'value': answerCodeObj['200']});
     
-    //TODOminutes
+    Object.keys(minObj)
+        .map(reqKey => {
+            requestsPerMinuteChartData.push({
+            'name': reqKey, 'value': minObj[reqKey]
+        })
+    })
 
-/*     console.log("req:" + JSON.stringify(requestMethodChartData));
-    console.log(answerChartData);
- */
-console.log(answerSizeChartData);
-
-});
+}); 
 
 module.exports = {requestMethodChartData : requestMethodChartData,
     answerChartData: answerChartData,

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const {requestMethodChartData} = require('../src/processing/processing');
+const {requestMethodChartData} = require('../processing');
 
 
 router.get('/', function(req, res, next) {

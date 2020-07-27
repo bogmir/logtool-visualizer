@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const {requestsPerMinuteChartData} = require('../src/processing/processing');
+const {requestsPerMinuteChartData} = require('../processing');
 
 
 router.get('/', function(req, res, next) {

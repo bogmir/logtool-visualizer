@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 
+const port = process.env.PORT || 5000;
+
 const indexRouter = require('./routes/index');
 const requestsRouter = require('./routes/requests');
 const answersRouter = require('./routes/answers');
@@ -17,4 +19,4 @@ app.use('/answers', answersRouter);
 app.use('/short-answers', answerSizeRouter);
 app.use('/requests-per-min', requestsPerMinuteRouter);
 
-//app.listen(5000);
+app.listen(port);

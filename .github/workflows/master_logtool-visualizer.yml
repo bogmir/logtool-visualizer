@@ -32,4 +32,4 @@ jobs:
         app-name: 'logtool-visualizer'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_71fef3a3f129433fae11903ebb7785a4 }}
-        package: .
+      

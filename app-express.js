@@ -20,4 +20,3 @@ app.use('/answers', answersRouter);
 app.use('/shortAnswers', answerSizeRouter);
 app.use('/requestsPerMin', requestsPerMinuteRouter);
 
-app.listen(5000);

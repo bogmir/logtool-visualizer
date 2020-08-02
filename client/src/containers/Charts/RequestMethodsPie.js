@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {BarChart, Bar, Cell, Tooltip, XAxis, YAxis, Legend} from 'recharts';
 import rca, {pastel} from 'rainbow-colors-array';
 
-import './RequestMethodsPie.css';
+//import styles from './RequestMethodsPie.module.css';
 
 
 class RequestMethodsPie extends Component {
@@ -12,9 +12,10 @@ class RequestMethodsPie extends Component {
   };
 
   componentDidMount() {
-    fetch('/requests')
+    fetch('/api/charts/requests')
       .then( res => res.json() )
-      .then(data => {
+      .then( data => {
+          console.log(data);
           this.setState({ 
               requests: data,
               colors: Object.values(rca(data.length, "hex", pastel))

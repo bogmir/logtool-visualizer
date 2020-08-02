@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
-/* import { ResponsiveContainer, LineChart, CartesianGrid, 
-    XAxis, YAxis, Label, Tooltip, Line } from "recharts";
- */import rca, {pastel} from 'rainbow-colors-array';
-import { LineChart } from 'react-chartkick';
-import 'chart.js';
+import rca, {pastel} from 'rainbow-colors-array';
 
-import './RequestsPerMinuteChart.css';
+
+
+//import styles from './RequestsPerMinuteChart.module.css';
 
 
 class RequestsPerMinuteChart extends Component {
@@ -15,7 +13,7 @@ class RequestsPerMinuteChart extends Component {
   };
 
   componentDidMount() {
-    fetch('/requests-per-min')
+    fetch('/api/charts/requests-per-min')
       .then( res => res.json() )
       .then(data => {
           this.setState({ 
@@ -63,7 +61,8 @@ class RequestsPerMinuteChart extends Component {
         </LineChart>
       </ResponsiveContainer>
     */ 
-       <LineChart data={this.state.reqsPerMin} xtitle="Time" ytitle="Requests" bytes="true" />  
+      /*  <LineChart data={this.state.reqsPerMin} xtitle="Time" ytitle="Requests" bytes="true" />   */
+      <div>dsa</div>
     
       );
 

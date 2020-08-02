@@ -6,6 +6,7 @@ import RequestMethodsPie from './containers/Charts/RequestMethodsPie';
 import AnswerCodesPie from './containers/Charts/AnswerCodesPie';
 import ShortAnswersDoughnut from './containers/Charts/ShortAnswersDoughnut';
 import RequestsPerMinuteChart from './containers/Charts/RequestsPerMinuteChart';
+import FileUploader from './containers/FileUploader/FileUploader';
 
 
 import Welcome from './components/Welcome';
@@ -20,7 +21,8 @@ class App extends Component {
             <Route path="/answer-codes" component={AnswerCodesPie} />
             <Route path="/short-answers" component={ShortAnswersDoughnut} />
             <Route path="/requests-per-min" component={RequestsPerMinuteChart} />
-            <Route path="/" component={Welcome} exact />
+            <Route path="/api/upload_file" component={FileUploader} />
+            <Route path="/" component={FileUploader} exact />
           </Switch>
         </Layout>
       </div>

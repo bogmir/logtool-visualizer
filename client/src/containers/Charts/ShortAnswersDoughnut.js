@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import {PieChart, Pie, Legend, Cell, Tooltip} from 'recharts';
+import {PieChart, Pie, Legend, Cell} from 'recharts';
 import rca, {pastel} from 'rainbow-colors-array';
 
-import './ShortAnswersDoughnut.css';
+//import styles from './ShortAnswersDoughnut.module.css';
 
+/*
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({
   cx, cy, midAngle, innerRadius, outerRadius, percent, index,
@@ -17,7 +18,7 @@ const renderCustomizedLabel = ({
       {`${(percent * 100).toFixed(0)}%`}
     </text>
   );
-};
+}; */
 
 class ShortAnswersDoughnut extends Component {
   
@@ -29,16 +30,15 @@ class ShortAnswersDoughnut extends Component {
 
 
   componentDidMount() {
-    fetch('/short-answers')
+    fetch('/api/charts/short-answers')
       .then( res => res.json() )
       .then( data => {
-        console.log(data[0].value);
+        console.log(data[0]);
          this.setState({
               activeIndex: 0,
               sizeDistribution: 
-                  [{name: 'LARGER than 1000B' , value: data[0].value.counterSize},
-                   {name: 'SMALLER than 1000B' , 
-                          value: data[0].value.counter-data[0].value.counterSize}],
+                  [{ name: 'LARGER than 1000B' , value: data[0].totalCodeOK },
+                   { name: 'SMALLER than 1000B' , value: data[0].totalSmallSize }],
               colors: Object.values(rca(2, "hex", pastel))
                    .map(el => "#" + el.hex)
           });

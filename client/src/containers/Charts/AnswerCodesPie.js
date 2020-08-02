@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import {PieChart, Pie, Cell, Tooltip, BarChart, Bar, Legend, XAxis, YAxis} from 'recharts';
+import {Cell, Tooltip, BarChart, Bar, Legend, XAxis, YAxis} from 'recharts';
 import rca, {pastel} from 'rainbow-colors-array';
 
-import './AnswerCodesPie.css';
+//import styles from './AnswerCodesPie.module.css';
 
 class AnswerCodesPie extends Component {
   state = {
@@ -11,7 +11,7 @@ class AnswerCodesPie extends Component {
   };
 
   componentDidMount() {
-    fetch('/answers')
+    fetch('/api/charts/answers')
       .then( res => res.json() )
       .then( updatedAnswers => 
           this.setState({
@@ -24,25 +24,7 @@ class AnswerCodesPie extends Component {
   render() {
     return (
       <div>
-{/*           <PieChart width={1000} height={1000}>
-            <Pie dataKey="value" 
-                isAnimationActive={false} 
-                data={this.state.answers} 
-                cx={400} cy={400} 
-                outerRadius={200} 
-                fill="#8884d8" 
-                label="Answer Codes">
-               {
-                  Object.values(this.state.answers).map((entry, index) => (
-                      <Cell key={`cell-${index}`} 
-                            fill={this.state.colors[index]}/>
-                ))
-              }
-            </Pie>
-            <Tooltip/>
-          </PieChart>
-
- */}         
+       
         <BarChart
                 width={1000} 
                 height={700} 

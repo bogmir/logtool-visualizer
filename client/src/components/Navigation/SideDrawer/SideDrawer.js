@@ -4,13 +4,13 @@ import Backdrop from '../../UI/Backdrop/Backdrop';
 /* import Logo from '../../Logo/Logo';
  */
 import NavigationItems from '../NavigationItems/NavigationItems';
-import './SideDrawer.css';
+import styles from './SideDrawer.module.css';
 
 
 const sideDrawer = ( props ) => {
-    let attachedClasses = ['SideDrawer', 'Close'];
+    let attachedClasses = [styles.SideDrawer, styles.Close];
     if (props.open) {
-        attachedClasses = ['SideDrawer', 'Open'];
+        attachedClasses = [styles.SideDrawer, styles.Open];
     }
     return (
         <Aux>
@@ -19,7 +19,8 @@ const sideDrawer = ( props ) => {
 {/*                 <div className={classes.Logo}>
                     <Logo />
                 </div>
- */}                <nav>
+ */}                
+                <nav>
                     <NavigationItems />
                 </nav>
             </div>

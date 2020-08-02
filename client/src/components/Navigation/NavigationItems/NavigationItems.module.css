@@ -8,8 +8,14 @@
     height: 100%;
 }
 
+
+
 @media (min-width: 500px) {
     .NavigationItems {
         flex-flow: row;
+    }
+
+    .NavigationItemRight {
+        margin-left: auto;
     }
 }

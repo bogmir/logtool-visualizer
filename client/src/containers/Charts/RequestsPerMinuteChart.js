@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
 import rca, {pastel} from 'rainbow-colors-array';
-
-
+import {LineChart, ResponsiveContainer, XAxis, YAxis, Label, Tooltip, Line} from 'recharts';
 
 //import styles from './RequestsPerMinuteChart.module.css';
-
 
 class RequestsPerMinuteChart extends Component {
   state = {
@@ -15,7 +13,7 @@ class RequestsPerMinuteChart extends Component {
   componentDidMount() {
     fetch('/api/charts/requests-per-min')
       .then( res => res.json() )
-      .then(data => {
+      .then( data => {
           this.setState({ 
             reqsPerMin: data,
               colors: Object.values(rca(data.length, "hex", pastel))
@@ -28,22 +26,22 @@ class RequestsPerMinuteChart extends Component {
 
   render() {
     return (
-/*       <ResponsiveContainer 
+       <ResponsiveContainer 
         width={"100%"} 
         height={700}>
           <LineChart
-            data={this.state.reqsPerMin}
+             data={this.state.reqsPerMin} 
+            /*data={data0}]*/
             margin={{top: 150, right: 200, left: 100, bottom: 50}}
           >
-          <CartesianGrid />
-          <XAxis type="number" dataKey="time" domain={["dataMin", "dataMax"]}>
+          <XAxis dataKey="name">
             <Label
               value={"Time"}
               position="bottom"
               style={{ textAnchor: "middle" }}
             />
           </XAxis>
-          <YAxis>
+          <YAxis domain={[0, 200]}>
             <Label
               value={"Number of requests"}
               position="left"
@@ -53,20 +51,15 @@ class RequestsPerMinuteChart extends Component {
           </YAxis>
           <Tooltip />
           <Line
-            dataKey="temperature"
-            name="Temperature"
+            dataKey="value"
+            name="requests"
             dot={false}
             type={"natural"}
           />
         </LineChart>
       </ResponsiveContainer>
-    */ 
-      /*  <LineChart data={this.state.reqsPerMin} xtitle="Time" ytitle="Requests" bytes="true" />   */
-      <div>dsa</div>
-    
-      );
-
-  }
+  );
+}
 }
 
 export default RequestsPerMinuteChart;

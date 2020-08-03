@@ -9,7 +9,7 @@ router.get('/answers', function(req, res, next) {
     res.json(req.session.chartData.answerChartData);
 });
 
-router.get('/requests-per-minute', function(req, res, next) {
+router.get('/requests-per-min', function(req, res, next) {
     res.json(req.session.chartData.requestsPerMinuteChartData);
 });
 

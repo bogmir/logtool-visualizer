@@ -84,16 +84,16 @@ const buildAnswerResponsesChartData = (...arr) => {
 const buildRequestsPerMinChartData = (...arr) => {
     if (arr == null) return [];
 
-/*  e.g. returns: [{'29:23:57': 54, 'value': 36712},  {'name': '29:23:58', 'value': 30}, 
-        {'name': '29:23:59', 'value': 23}, {'name': '29:24:00', 'value': 6}, ...]
+/*  e.g. returns: [{'(29)23:57': 54, 'value': 36712},  {'name': '(29)23:58', 'value': 30}, 
+        {'name': '(29)23:59', 'value': 23}, {'name': '(29)24:00', 'value': 6}, ...]
 */       
     const reqPerMinObjects = arr.reduce((acc, el) => {
-        let timeElem = el.day + ":" + el.hour + ":" + el.minute;
+        let timeElem = `(${el.day}) ${el.hour}:${el.minute}`;
         acc[timeElem] = acc[timeElem] + 1 || 1;
         return acc;
     }, {});
-/*  e.g. returns: [{'name': '29:23:57', 'value': 54},  {'name': '29:23:58', 'value': 30}, 
-        {'name': '29:23:59', 'value': 23}, {'name': '29:24:00', 'value': 6}, ...]
+/*  e.g. returns: [{'name': '(29)23:57', 'value': 54},  {'name': '(29)23:58', 'value': 30}, 
+        {'name': '(29)23:59', 'value': 23}, {'name': '(29)24:00', 'value': 6}, ...]
 */
     Object.keys(reqPerMinObjects)
         .map(reqKey => {
@@ -107,7 +107,7 @@ const buildRequestsPerMinChartData = (...arr) => {
     
 
 
-const processFile = (filepath='resources/epa-http.json') => {
+const processFile = (filepath='src/data/epa-http.json') => {
     requestMethodChartData = [];
     answerChartData = [];
     requestsPerMinuteChartData = [];

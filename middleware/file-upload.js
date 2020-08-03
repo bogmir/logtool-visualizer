@@ -1,10 +1,12 @@
 const multer = require('multer');
+const DEST_PATH = 'uploads';
+const FILE_SIZE_LIMIT = 20000000;
 
 const fileUpload = multer({ 
-    limits: 20000000,
+    limits: FILE_SIZE_LIMIT,
     storage: multer.diskStorage({
         destination: (req, file, cb) => {
-            cb(null, 'resources');
+            cb(null, DEST_PATH);
         },
         filename: (req, file, cb) => {
             cb(null, Date.now() + '-' +file.originalname );
@@ -19,14 +21,14 @@ const fileUpload = multer({
 
 module.exports = (req, res, next) => {
     fileUpload.single('file')(req, res, function (err) {
-      //Catching and handling errors of multer
+      //Catching and handling multer's errors
       if (err instanceof multer.MulterError) {
         return res.status(500).json(err);
       } else if (err) {
         console.log(err);
         return res.status(500).json(err);
       }
-      //Everything is ok
+
       next();
     })
 }

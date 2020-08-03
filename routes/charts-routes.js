@@ -1,26 +1,20 @@
 const express = require('express');
 const router = express.Router();
 
-/* const {requestMethodChartData, answerChartData, requestsPerMinuteChartData, answerSizeChartData} 
-    = require('../controllers/processing');
- */
-const {getChartData} = require('../controllers/processing');
-
 router.get('/requests', function(req, res, next) {
-  console.log("from without"+getChartData.requestMethodChartData);  
-  res.json(getChartData().requestMethodChartData);
+    res.json(req.session.chartData.requestMethodChartData);
 });
 
 router.get('/answers', function(req, res, next) {
-    res.json(getChartData().answerChartData);
+    res.json(req.session.chartData.answerChartData);
 });
 
 router.get('/requests-per-minute', function(req, res, next) {
-    res.json(getChartData().requestsPerMinuteChartData);
+    res.json(req.session.chartData.requestsPerMinuteChartData);
 });
 
 router.get('/short-answers', function(req, res, next) {
-    res.json(getChartData().answerSizeChartData);
+    res.json(req.session.chartData.answerSizeChartData);
 });
 
 module.exports = router;

@@ -1,6 +1,7 @@
 const express = require('express');
 //const cors = require('cors');
 const path = require('path');
+const session = require('express-session');
 
 const port = process.env.PORT || 5000;
 
@@ -11,8 +12,15 @@ const indexRouter = require('./routes/index');
 
 const app = express();
 
+
 //app.use(cors());
 app.use('/static', express.static(path.join(__dirname, 'client/build/static')));
+app.use(session({
+    secret: 'sssshhhhh',
+    resave: true,
+    saveUninitialized: true,
+    cookie: { secure: false }
+}))
 
 app.use('/', indexRouter);
 app.use('/api/upload', uploadFileRouter);
